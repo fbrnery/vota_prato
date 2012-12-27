@@ -1,0 +1,17 @@
+<h1> Adcionando Restaurante </h1>
+<%= render partial: "titulo" %>
+<% if @restaurante.errors.any? %>
+  <ul>
+  <% restaurante.erros.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= form_for :restaurante, url: {action: 'create'} do |f| %>
+  Nome: <%= f.text_field :nome %><br/>
+  Endereco: <%= f.text_field :endereco %><br/>
+  Especialidade: <%= f.text_field :especialidade %><br/>
+  <%= submit_tag 'criar' %>
+  <%= link_to 'Voltar', {action: 'index' } %>
+<% end %>
